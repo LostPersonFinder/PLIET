@@ -1,0 +1,31 @@
+/*  
+* Filename: 		org_city_pronoun_annotator.jape
+* Author:			Phil Gooch
+* Copyright:		Phil Gooch
+* Description:		Annotates pronouns for anaphoricity/neoplasticity, case, person, number and gender
+*					Requires as preprocessing steps: 
+*						ANNIE Tokenizer
+*						ANNIE POS Tagger
+*						ANNIE VP Chunker
+*						GATE Morphological Analyzer
+*						
+* Date created:		08/09/2011
+* This version:		0.1
+
+* Change history
+* ==========================================================================
+* Date				Version		Author		Description
+* ==========================================================================
+* 
+*
+*
+*/
+
+MultiPhase:	PronounAnnots
+Phases:
+pr14295601379111440858
+pr29005389910072133918
+pr35623321648676062566
+pr44340137332663858066
+pr58319656202301867358
+pr63546352257775049148

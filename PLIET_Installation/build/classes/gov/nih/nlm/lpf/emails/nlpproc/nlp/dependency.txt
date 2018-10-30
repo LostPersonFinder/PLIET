@@ -1,0 +1,127 @@
+Dependency Relations between different types of Words/Phrases in a sentence
+
+Word/Phrase:
+==============
+Noun: 
+----
+amod: (red meat)
+apppos: (Sam, my brother) or (Sam (my brother))
+cc: (and or but)
+det: (A, the, no, some, which, ...)
+infmod: Infinitive verb as modifier (I don’t have anything to say (anything, say)).
+neg:
+nn: (Oil future prices)
+partmod: (Truffles picked during the spring - (truffles, picked))
+poss
+prep: preposition (I saw a cat in a hat - prep(cat, in))
+tmod: temporal modifier
+=>dep: Unresolved dependency: (I am looking for my brother Sam - (Sam, brother)
+
+
+Verb
+----
+acomp (looks very beautiful) 
+advmod (genetically modified) 
+cc (looked and searched)
+ccomp
+neg
+partmod (Bill tried to shoot demonstrating...(shoot, demonstrating))
+prep
+tmod: (Last night, I swam in the pool - tmod(swam, night))
+xcomp: (He says that you like to swim - (like, swim))
+=>dep Unresolved dependency:
+
+Adjective
+--------- 
+advmod(less often)
+cc (alive and well)
+neg
+nsubj(The baby is cute (cute, baby), He is alive(alive,he))
+prep
+tmod
+xcomp: (I am ready to leave - (ready, leave))
+
+Preposition
+-----------
+pobj
+
+
+Clauses
+===========
+Noun
+-----
+rcmod: (I saw the book which you bought - (book, bought) ref: which)
+
+Verb
+----- 
+advcl: (If you know who did it, you should tell the teacher) [Marker: if]
+ccomp: (He says that you like to swim) - [complm: complementizer = "that"]
+purpcl:(He talked to him in order to secure the account - purpcl(talked, secure))
+prepc: (He purchased it without paying a premium - prepc_without(purchased, paying)))
+
+Adjective
+---------
+ccomp (I admire the fact that you are honest), (I am certain that he did it)
+prepc	 
+
+
+Preposition
+------------
+pcomp: (They heard about you missing classes - (about, missing)
+
+
+
+========================================
+Subjects:
+Verb:
+nsubj (Clinton defeated Dole)
+nsubjpass (Dole was defeated by Clinton)
+csubj: Clausal subject /A clause as a subject) (What she said makes sense.)
+ccsujpass: Passive Form (That she lied was suspected by everyone- csubjpass(suspected, lied))
+xsubj: External subject of the xcomp clause (Tom likes to eat fish - (eat, Tom))
+
+Adjective:
+csubj: (What she said is true.)
+ccubjpass
+
+
+========================================
+Objects:
+
+Verb:
+dobj: (direct Object: She gave me a raise (gave, raise))
+iobj: (indirect Object: She gave me a raise (gave, me))
+
+=================================================
+Notes: 
+xcomp - does not have an internal subject, refers to the subject of the governor
+ccomp - Has an internal subject (I admire the fact that you are honest: subject->you)
+
+----------------------------------------------------------------------------------
+================================================================================
+
+Algorithm:
+For each Verb, Noun, Preposition and Adjective token:
+Determine Token IDs of its: (a) word relations, (b) Clausal Relations (t
+Determine conjuncts, adjectives, nn, det, neg etc. depending upon the Governor type
+
+Start with Verbs:
+If not Xcomp verb, find subject: nsubj, nsubjpass, csubj, csubjpass
+If xcomp: find: xsubj
+
+Determine object (dobj, iobj)
+Determine prepositional Objects: (pobj)
+
+Determine clausal relations and marker or clausal connector. (if, because, ...)
+
+====================================================================================
+A verb phrase: (primary or xcomp)
+- Verb and its clausal verbs 
+- standard objects
+
+Verb objects: 
+(a) Direct/Indirect objects.
+(b) Clausal Objects TBD
+
+ 
+

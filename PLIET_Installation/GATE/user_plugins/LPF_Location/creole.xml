@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- $Id: creole.xml 15153 2012-01-20 17:47:20Z markagreenwood $ -->
+<!-- creole.xml directory file for ANNIE Processing resources -->
+<CREOLE-DIRECTORY>
+	<!-- Processing Resources -->
+	<CREOLE>
+		<!-- creole.xml for ANNIE Transducer -->
+		<RESOURCE>
+			<NAME>LPF Person Location Resolver</NAME>
+			<COMMENT>Location and Person Name resolver using Google GeoCoder Service</COMMENT>
+			<CLASS>gov.lpf.resolve.PersonLocationResolver</CLASS>
+			<JAR>LPFLocation.jar</JAR> 
+			<PARAMETER NAME="inputASName" RUNTIME="true" OPTIONAL="true">java.lang.String</PARAMETER> 
+			<PARAMETER NAME="outputASName" RUNTIME="true" OPTIONAL="true">java.lang.String</PARAMETER> 
+		</RESOURCE>
+	</CREOLE>
+</CREOLE-DIRECTORY>
+

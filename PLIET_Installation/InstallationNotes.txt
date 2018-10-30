@@ -1,0 +1,30 @@
+This directory contains the source code, project build file (under NetBeans), required libraries, and the NLP processing pipeline definition for building and running the PLIET module called EmailProc. 
+
+PLIET Software Version - PLIET-V1.1
+
+The subdirectories and their main contents as follows:
+
+src - All source code for compiling and building PLIET
+
+bat - command files for starting PLIET 
+	bat/PLIET_V1.2PLDemo_Unix.sh - Example of stating from a demo directory
+ 
+config - configuration related file for running PLIET and exchanging information with PL Web services
+	config/PLStatusLexicon.lst - Text file defining the disaster-related vocabulary in a 
+	config/StatusWords.lst - PL-specific vocabulary to indicate the physical status of a person (live, well, deceased, injured...) 
+	config/corefext1-collapsed.gapp.xml - Specifies the GATE NLP processing pipeline and corresponding processing modules
+	config/usr-gate.xml - GATE related PLIET termination status file
+
+config/plus/* - Files related to interface with the People Locator Web Server
+	config/plus/PLEmailProc_prod.cfg - PLIET client and PL Host inteface Configuration 
+
+dist - PLIET  (EmailProc_Ops.Jar and all libraries) run-time file for distribution
+
+GATE - GATE related libraries and plug-ins (for Pronoun Annotator) to build and run PLIET
+log - Directory to contain EmailProc generated log files during operation
+
+plietLib - Additional libraries for sending/receiving email messages
+
+src - All source code for building the EmailProc
+
+nbproject - original NetBeans project data for building PLIET. Should be updated to be used at youe location.

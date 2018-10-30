@@ -1,0 +1,76 @@
+able+status=alive and well
+alive and well+status=alive and well
+okay+status=alive and well
+ok+status=alive and well
+fine+status=alive and well
+good+status=alive and well
+safe+status=alive and well
+capable+status=alive and well
+strong+status=alive and well
+uninjured+status=alive and well
+unhurt+status=alive and well
+conscious+status=alive and well
+unconscious+status=injured
+breathless+status=injured
+lifeless+status=deceased
+tired+status=injured
+exhusted+status=injured
+reached+status=found
+hurt+status=injured
+healed+status=alive and well
+injured+status=injured
+wounded+status=injured
+missing+status=missing
+going+status=found
+gone+status=missing
+survived+status=found
+made it+status=found
+doing well+status=alive and well+neg=injured
+unkown+status=missing+neg=found
+well+status=alive and well+neg=injured
+lost+status=missing
+looking+status=missing
+found+status=found
+deceased+status=deceased
+dead+status=deceased
+distressed+status=injured
+lived+status=found
+lives+status=found
+living+status=found
+buried+status=deceased
+died+status=deceased+neg=alive and well
+killed+status=deceased
+crushed+status=deceased
+perished+status=deceased
+swept away+status=deceased
+washed away+status=deceased
+decapitated+status=deceased
+lost+status=missing+neg=found
+wounded+status=injured
+strong+status=alive and well
+unable to find+status=missing
+unable to locate+status=missing
+unable+status=injured
+recovered+status=alive and well
+released+status=alive and well
+treated+status=injured
+located+status=found+neg=missing
+lying+status=injured
+stuck+status=injured
+struck+status=injured
+trapped+status=injured
+discovered+status=found
+waiting+status=unknown
+called+status=found
+talked+status=found
+contacted+status=found
+need+status=unknown
+seen+status=found+neg=missing
+contact+status=unknown
+want+status=unknown
+wait+status=unknown
+inform+status=unknown
+say+status=unknown
+write+status=alive and well
+reply+status=alive and well
+speak+status=report

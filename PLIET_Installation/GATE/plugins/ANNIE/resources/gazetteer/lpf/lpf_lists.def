@@ -1,0 +1,6 @@
+disaster_vocab.lst:term:PL:en:DisasterTerm
+lpf_status_verb.lst:healthStatus:PL_verb:en:Condition
+lpf_status_noun.lst:healthStatus:PL_noun:en:Condition
+person_attributes.lst:person_attribute:PL_attr:en:Attribute
+person_relatives.lst:person_attribute:PL_attr:en:Attribute
+us_census_lastnames.lst:lastname:us_census:en:Lastname

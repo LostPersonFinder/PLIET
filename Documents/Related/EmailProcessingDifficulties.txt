@@ -1,0 +1,13 @@
+2.	Processing the Sentence text
+Due to the lack of an exact definition of "Informal Text," I have assumed that it would consist of full sentences with 
+proper syntactic structure or certain "sentence fragments."
+[A sentence fragment is regarded as a sentence without a verb, but with other grammatical constructs.] 
+These may lack proper punctuation, capitalization etc. as often found in email messages. Our goal is to process 
+such fragments through gazetteer lookups and regular expression matching, since such text cannot be 
+correctly parsed by an NLP parser.
+
+However, examining the received messages, one finds that they may contain keywords/tag-based text, unstructured text, 
+full sentences or a combination of all. We found that it is not very simple to classify the genre of a sentence 
+without developing a suitable Classifier. 
+
+(For the first release, we may make certain Rule-based decisions, although that may not be very accurate.)

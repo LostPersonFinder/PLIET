@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<project name="LPFLocation" basedir="." default="jar">
+    <description> LPF location build file </description>
+	<!-- set global properties for this build -->
+	<property name="src" location="src"/>
+	<property name="gateLib"  location="C:/DevWork/LPFGate/lib"/>
+	<property name="dist"  location="."/>
+	<property name="build" location="build"/>
+	<property name="JAVA_HOME"  location="c:/Program Files/java/jdk1.6.0_26"/>
+	
+	<path id="allLibs">
+	    <fileset dir="${gateLib}">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir= "${JAVA_HOME}">
+			<include name="*.jar"/>
+		</fileset>
+	</path> 
+ 
+	<target name="compile" depends="create">
+		<javac srcdir="${src}" destdir="${build}" debug="on" classpathref="allLibs" />
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar destfile="LPFLocation.jar">
+			<fileset dir="build"/>
+		</jar>
+	</target>
+
+	<target name="clean">
+		<delete dir="${build}"/>
+	</target>
+
+	<target name="create" depends="clean">
+		<mkdir dir="${build}"/>
+	</target>
+
+
+</project>

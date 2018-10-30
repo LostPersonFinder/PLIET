@@ -1,0 +1,12 @@
+care
+condition
+environment
+health
+healing
+injury
+injuries
+shape
+situation
+status
+surroundings
+wounds

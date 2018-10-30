@@ -1,0 +1,165 @@
+//NOTE: The subject of a Health_STATUS_VERB is a "Reported Person", whereas the subject 
+//of a "REPORTING_VERB" is a Reporter. Both verbs imply a Reported Person's condition.
+// 
+//Syntax - Word:POSTag:Morpho:AlternateForms:Category:HealthCondition:NegativeCondition
+//
+//Note: Verb category is indicated with the *xxx* lines below. Do not change them.
+
+*Unique_Status_Verbs*
+
+// list of Adjectives
+able:Adjective:::HEALTH_STATUS_VERB:ALIVE:INJURED
+alive:Adjective:::HEALTH_STATUS_VERB:ALIVE:DECEASED
+capable:Adjective:::HEALTH_STATUS_VERB:ALIVE:INJURED
+conscious:Adjective:::HEALTH_STATUS_VERB:ALIVE:INJURED
+exhusted:Adjective:::HEALTH_STATUS_VERB:FOUND:ALIVE
+fine:Adjective:::HEALTH_STATUS_VERB:ALIVE:INJURED
+good:Adjective:::HEALTH_STATUS_VERB:ALIVE:INJURED
+bad:Adjective:::HEALTH_STATUS_VERB:INJURED:ALIVE
+lost:Adjective:::HEALTH_STATUS_VERB:MISSING:FOUND
+okay:Adjective::ok|o.k.|alright|allright|all right|:HEALTH_STATUS_VERB:ALIVE
+poor:Adjective:::HEALTH_STATUS_VERB:INJURED:ALIVE
+safe:Adjective:::HEALTH_STATUS_VERB:ALIVE:INJURED
+strong:Adjective:::HEALTH_STATUS_VERB:ALIVE:INJURED
+stable:Adjective:::HEALTH_STATUS_VERB:ALIVE:INJURED
+tired:Adjective:::HEALTH_STATUS_VERB:FOUND:ALIVE
+unhurt:Adjective:::HEALTH_STATUS_VERB:ALIVE 
+uninjured:Adjective:::HEALTH_STATUS_VERB:ALIVE
+unharmed:Adjective:::HEALTH_STATUS_VERB:ALIVE
+well:Adjective:::HEALTH_STATUS_VERB:ALIVE:INJURED
+
+breathless:Adjective:::HEALTH_STATUS_VERB:DECEASED:UNKNOWN
+lifeless:Adjective:::HEALTH_STATUS_VERB:DECEASED:UNKNOWN
+dead:Adjective:::HEALTH_STATUS_VERB:DECEASED:UNKNOWN
+
+unconscious:Adjective:::HEALTH_STATUS_VERB:INJURED
+unknown:Adjective:::HEALTH_STATUS_VERB:UNKNOWN
+sure:Adjective:::REPORTING_VERB:UNKNOWN
+
+
+// TBD: The following adjectives are sometimes parsed as Verbs without preceding "is"
+//alive:verb:::HEALTH_STATUS_VERB:ALIVE:DECEASED
+
+// list of verbs
+recovered:Verb:recover::HEALTH_STATUS_VERB:ALIVE:INJURED
+released:Verb:release::HEALTH_STATUS_VERB:ALIVE:INJURED
+lived:Verb:live::HEALTH_STATUS_VERB:ALIVE:UNKNOWN
+survived:Verb:survive::HEALTH_STATUS_VERB:ALIVE:DECEASED
+evacuated:Verb:evacuate::HEALTH_STATUS_VERB:ALIVE:MISSING
+
+broken:Verb:break::HEALTH_STATUS_VERB:INJURED:ALIVE
+disabled:Verb:disable::HEALTH_STATUS_VERB:INJURED:ALIVE
+fractured:Verb:fracture::HEALTH_STATUS_VERB:INJURED:ALIVE
+hurt:Verb:hurt::HEALTH_STATUS_VERB:INJURED:ALIVE:ALIVE
+injured:Verb:injure::HEALTH_STATUS_VERB:INJURED:ALIVE
+shaken:Verb:shake::HEALTH_STATUS_VERB:ALIVE:ALIVE
+lying:Verb:lie::HEALTH_STATUS_VERB:INJURED:UNKNOWN
+stabilized:Verb:stabilize::HEALTH_STATUS_VERB:INJURED:INJURED
+detoriated:Verb:detorite::HEALTH_STATUS_VERB:INJURED:INJURED
+
+stuck:Verb:stick::HEALTH_STATUS_VERB:INJURED:UNKNOWN 
+trapped:Verb:trap::HEALTH_STATUS_VERB:INJURED:ALIVE
+treated:Verb:treat::HEALTH_STATUS_VERB:INJURED:UNKNOWN
+wounded:Verb:wound::HEALTH_STATUS_VERB:INJURED:ALIVE
+
+missing:Verb:miss::HEALTH_STATUS_VERB:MISSING:FOUND
+visiting:Verb:visit::HEALTH_STATUS_VERB:UNKNOWN:UNKNOWN
+picked:Verb:pick::HEALTH_STATUS_VERB:FOUND:MISSING
+staying:Verb:stay::HEALTH_STATUS_VERB:FOUND:UNKNOWN
+rescued:Verb:rescue::HEALTH_STATUS_VERB:FOUND:MISSING
+reached:Verb:reach::HEALTH_STATUS_VERB:FOUND:MISSING
+survived:Verb:survive::HEALTH_STATUS_VERB:FOUND:MISSING
+driving:Verb:drive::HEALTH_STATUS_VERB:FOUND:UNKNOWN
+gone:Verb::went:HEALTH_STATUS_VERB:MISSING:UNKNOWN
+going:Verb:go::HEALTH_STATUS_VERB:FOUND:UNKNOWN
+contacted:Verb:contact::HEALTH_STATUS_VERB:FOUND:UNKNOWN
+
+died:Verb:die::HEALTH_STATUS_VERB:DECEASED:UNKNOWN
+killed:Verb:kill::HEALTH_STATUS_VERB:DECEASED:UNKNOWN
+perished:Verb:perish::HEALTH_STATUS_VERB:DECEASED:MISSING
+crushed:Verb:crush::HEALTH_STATUS_VERB:DECEASED:UNKNOWN
+decapacitated:Verb:decapacitate::HEALTH_STATUS_VERB:DECEASED
+swept:Verb:sweep::HEALTH_STATUS_VERB:DECEASED:UNKNOWN
+washed:Verb:wash::HEALTH_STATUS_VERB:DECEASED:UNKNOWN
+identified:Verb:identify::HEALTH_STATUS_VERB:UNKNOWN:UNKNOWN 
+bleeding:Verb:bleed:bled:HEALTH_STATUS_VERB:INJURED:UNKNOWN
+//needs:Verb:need::HEALTH_STATUS_VERB:INJURED:UNKNOWN
+
+// reporting verb
+searching:Verb:search::REPORTING_VERB:MISSING:UNKNOWN
+said:Verb:say::REPORTING_VERB:UNKNOWN:UNKNOWN
+reported:Verb:report::REPORTING_VERB:UNKNOWN:UNKNOWN
+ask:Verb:ask::REPORTING_VERB:ENQUIRY:UNKNOWN
+hope:Verb:hope::REPORTING_VERB:ENQUIRY:UNKNOWN
+pray:Verb:pray::REPORTING_VERB:ENQUIRY:UNKNOWN
+heard:Verb:hear::REPORTING_VERB:UNKNOWN:UNKNOWN
+believe:Verb:believe::REPORTING_VERB:UNKNOWN:UNKNOWN
+confirmed:Verb:confirm::REPORTING_VERB:UNKNOWN:UNKNOWN
+concerned:Verb:concern::REPORTING_VERB:UNKNOWN:ALIVE
+worried:Verb:worry::REPORTING_VERB:UNKNOWN:ALIVE
+distressed:Verb:distress::REPORTING_VERB:UNKNOWN:ALIVE
+
+
+// Verbs default voice is passive or does not matter
+// Default status etc. to be refined
+discovered:Verb:discover:discovery:AMBIGUOUS_VERB:FOUND:MISSING
+located:Verb:locate::AMBIGUOUS_VERB:FOUND:MISSING
+found:Verb:find::AMBIGUOUS_VERB:FOUND:MISSING
+waiting:Verb:wait::AMBIGUOUS_VERB
+looking:Verb:look::AMBIGUOUS_VERB
+informed:Verb:inform::AMBIGUOUS_VERB:UNKNOWN:UNKNOWN
+spoke:Verb:speak::AMBIGUOUS_VERB:UNKNOWN:UNKNOWN
+called:Verb:call::AMBIGUOUS_VERB:UNKNOWN:UNKNOWN
+talked:Verb:talk::AMBIGUOUS_VERB:UNKNOWN:UNKNOWN
+seen:Verb:see::AMBIGUOUS_VERB:UNKNOWN:UNKNOWN
+liked:Verb:like::AMBIGUOUS_VERB:UNKNOWN:UNKNOWN
+
+*Ambiguity_Resolution* 
+// distinguished by their objects or complementary verbs etc.
+
+// active and passive voice respectively. (e.g. "We found" vs. "he was found" vs. "Lisa found" with no object)
+AMBIGUOUS_A1:find|see|locate|discover|take:VOICE:PASSIVE:HEALTH_STATUS_VERB:FOUND:MISSING
+AMBIGUOUS_A2:find|see|locate|discover|take:VOICE:ACTIVE:REPORTING_VERB:FOUND:MISSING
+
+// This is not correct - fix it. Reporter verb may also be past tense
+AMBIGUOUS_A3:tell|contact|touch|say|write|send:TENSE:PAST:HEALTH_STATUS_VERB:FOUND:MISSING
+AMBIGUOUS_A3:tell|contact|touch|say|write:TENSE:PRESENT:REPORTING_VERB:MISSING:UNKNOWN
+//
+AMBIGUOUS_O1:want|need|seek|wait:OBJECT:news|status|information|text|condition|whereabouts:REPORTING_VERB:ENQUIRY
+AMBIGUOUS_O1:has|have|receive|get|know:OBJECT:news|text|status|information|condition|whereabouts:REPORTING_VERB:UNKNOWN
+AMBIGUOUS_O2:want|need|wait|seek:OBJECT:help|assistance|rescue|treatment|food|water|medicine|supply:HEALTH_STATUS_VERB:INJURED
+AMBIGUOUS_O3:make:OBJECT:contact:HEALTH_STATUS_VERB:UNKNOWN
+AMBIGUOUS_O3:make:OBJECT:it:HEALTH_STATUS_VERB:ALIVE:DECEASED
+
+
+//To be implemented later as refinement
+//AMBIGUOUS_OT1:concerned|worried|distressed:OBJECT_TYPE:Person:REPORTING_VERB:UNKNOWN:ALIVE
+//AMBIGUOUS_OT2:concerned|worried|distressed:OBJECT_TYPE:nonPerson:HEALTH_STATUS_VERB:INJURED:ALIVE
+//AMBIGUOUS_OT3:look:OBJECT_TYPE:Person:REPORTING_VERB:ENQUIRY
+
+// 
+AMBIGUOUS_TC1:want|try|unable:TO_COMPLEMENT:know|find|contact|locate|check:REPORTING_VERB:MISSING
+AMBIGUOUS_TC2:unable:TO_COMPLEMENT:move|walk|breath|talk:HEALTH_STATUS_VERB:INJURED
+AMBIGUOUS_TC3:like:TO_COMPLEMENT:report|get|know:REPORTING_VERB:MISSING:UNKNOWN
+AMBIGUOUS_TC4:call:TO_COMPLEMENT:say|inform|state:HEALTH_STATUS_VERB:FOUND
+AMBIGUOUS_TC5:fail:TO_COMPLEMENT:make|survive|arrive:HEALTH_STATUS_VERB:DECEASED:UNKNOWN
+AMBIGUOUS_TC6:fail:TO_COMPLEMENT:rescue|save|sustain|help:REPORTING_VERB:DECEASED:UNKNOWN
+
+
+
+// Default category if other criteria fail
+AMBIGUOUS_D1:look|try|want|check|know|receive:DEFAULT::REPORTING_VERB:MISSING:UNKNOWN
+AMBIGUOUS_D2:find:DEFAULT::HEALTH_STATUS_VERB:FOUND:MISSING
+AMBIGUOUS_D3:take|place|speak:DEFAULT::REPORTING_VERB:FOUND:UNKNOWN
+
+
+// Special categories indicating age and name - not used through Lexicon
+//old:Adjective:::PERSONAL_ATTRIBUTE:AGE:AGE
+//age:Verb:::PERSONAL_ATTRIBUTE:AGE:AGE
+//name:Verb:::PERSONAL_ATTRIBUTE:NAME:NAME
+
+
+
+
+
+

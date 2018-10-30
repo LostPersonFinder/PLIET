@@ -1,0 +1,45 @@
+<person>
+	<xmlFormat>REUNITE4</xmlFormat>
+	<dateTimeSent></dateTimeSent>
+	<expiryDate></expiryDate>
+	<eventShortname></eventShortname>
+	<givenName></givenName>
+	<familyName></familyName>
+	<gender></gender>
+	<minAge></minAge>
+	<maxAge></maxAge>
+	<estimatedAge></estimatedAge>
+	<status></status>
+	<location>
+		<street1></street1>
+		<street2></street2>
+		<neighborhood></neighborhood>
+		<city></city>
+		<region></region>
+		<postalCode></postalCode>
+		<country></country>
+		<gps>
+			<lat></lat>
+			<lon></lon>
+		</gps>
+	</location>
+	<photos>
+		<photo>
+			<primary></primary>
+			<data></data>
+			<dataDesc/>
+			<tags>
+				<tag>
+					<x></x>
+					<y></y>
+					<w></w>
+					<h></h>
+					<text></text>
+				</tag>
+			</tags>
+		</photo>
+	</photos>
+	<note></note>
+</person>
+
+

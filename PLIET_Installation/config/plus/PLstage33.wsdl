@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="soap/plusWebServices" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="soap/plusWebServices">
+<types>
+<xsd:schema elementFormDefault="qualified" targetNamespace="soap/plusWebServices">
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/"/>
+ <xsd:complexType name="requestUserTokenRequestType">
+  <xsd:all>
+   <xsd:element name="username" type="xsd:string" form="unqualified"/>
+   <xsd:element name="password" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="requestUserTokenResponseType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="requestAnonTokenRequestType"/>
+ <xsd:complexType name="requestAnonTokenResponseType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="purgeUserTokensRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="username" type="xsd:string" form="unqualified"/>
+   <xsd:element name="password" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="purgeUserTokensResponseType">
+  <xsd:all>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="pingEchoRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="pingString" type="xsd:string" form="unqualified"/>
+   <xsd:element name="latency" type="xsd:integer" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="pingEchoResponseType">
+  <xsd:all>
+   <xsd:element name="time" type="xsd:string" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getEventListRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getEventListResponseType">
+  <xsd:all>
+   <xsd:element name="eventList" type="xsd:string" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getGroupListRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getGroupListResponseType">
+  <xsd:all>
+   <xsd:element name="groupList" type="xsd:string" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="registerUserRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="username" type="xsd:string" form="unqualified"/>
+   <xsd:element name="emailAddress" type="xsd:string" form="unqualified"/>
+   <xsd:element name="password" type="xsd:string" form="unqualified"/>
+   <xsd:element name="givenName" type="xsd:string" form="unqualified"/>
+   <xsd:element name="familyName" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="registerUserResponseType">
+  <xsd:all>
+   <xsd:element name="registered" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="changeUserPasswordRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="username" type="xsd:string" form="unqualified"/>
+   <xsd:element name="oldPassword" type="xsd:string" form="unqualified"/>
+   <xsd:element name="newPassword" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="changeUserPasswordResponseType">
+  <xsd:all>
+   <xsd:element name="changed" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="resetUserPasswordRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="email" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="resetUserPasswordResponseType">
+  <xsd:all>
+   <xsd:element name="sent" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="forgotUsernameRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="email" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="forgotUsernameResponseType">
+  <xsd:all>
+   <xsd:element name="sent" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getUserGroupRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="username" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getUserGroupResponseType">
+  <xsd:all>
+   <xsd:element name="group_id" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="group_name" type="xsd:string" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getSessionCookieRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getSessionCookieResponseType">
+  <xsd:all>
+   <xsd:element name="SESSION_ID" type="xsd:string" form="unqualified"/>
+   <xsd:element name="SESS_KEY" type="xsd:string" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="searchRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="eventShortname" type="xsd:string" form="unqualified"/>
+   <xsd:element name="searchTerm" type="xsd:string" form="unqualified"/>
+   <xsd:element name="filterStatusMissing" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterStatusAlive" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterStatusInjured" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterStatusDeceased" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterStatusUnknown" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterStatusFound" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterGenderComplex" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterGenderMale" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterGenderFemale" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterGenderUnknown" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterAgeChild" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterAgeAdult" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterAgeUnknown" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterHospital" type="xsd:string" form="unqualified"/>
+   <xsd:element name="filterHasImage" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="pageStart" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="perPage" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="sortBy" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="searchResponseType">
+  <xsd:all>
+   <xsd:element name="resultSet" type="xsd:string" form="unqualified"/>
+   <xsd:element name="recordsFound" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="timeElapsed" type="xsd:double" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="searchCountRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="eventShortname" type="xsd:string" form="unqualified"/>
+   <xsd:element name="searchTerm" type="xsd:string" form="unqualified"/>
+   <xsd:element name="filterStatusMissing" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterStatusAlive" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterStatusInjured" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterStatusDeceased" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterStatusUnknown" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterStatusFound" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterGenderComplex" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterGenderMale" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterGenderFemale" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterGenderUnknown" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterAgeChild" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterAgeAdult" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterAgeUnknown" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="filterHospital" type="xsd:string" form="unqualified"/>
+   <xsd:element name="filterHasImage" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="pageStart" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="perPage" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="sortBy" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="searchCountResponseType">
+  <xsd:all>
+   <xsd:element name="recordsFound" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="timeElapsed" type="xsd:double" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="reportPersonRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="payload" type="xsd:string" form="unqualified"/>
+   <xsd:element name="payloadFormat" type="xsd:string" form="unqualified"/>
+   <xsd:element name="shortname" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="reportPersonResponseType">
+  <xsd:all>
+   <xsd:element name="uuid" type="xsd:string" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="reReportPersonRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="payload" type="xsd:string" form="unqualified"/>
+   <xsd:element name="payloadFormat" type="xsd:string" form="unqualified"/>
+   <xsd:element name="shortname" type="xsd:string" form="unqualified"/>
+   <xsd:element name="uuid" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="reReportPersonResponseType">
+  <xsd:all>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="expirePersonRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="uuid" type="xsd:string" form="unqualified"/>
+   <xsd:element name="explanation" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="expirePersonResponseType">
+  <xsd:all>
+   <xsd:element name="queued" type="xsd:boolean" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="reportAbuseRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="uuid" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="reportAbuseResponseType">
+  <xsd:all>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addCommentRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="uuid" type="xsd:string" form="unqualified"/>
+   <xsd:element name="comment" type="xsd:string" form="unqualified"/>
+   <xsd:element name="suggested_status" type="xsd:string" form="unqualified"/>
+   <xsd:element name="suggested_location" type="xsd:string" form="unqualified"/>
+   <xsd:element name="suggested_image" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="addCommentResponseType">
+  <xsd:all>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getImageCountsAndTokensRequestType">
+  <xsd:all>
+   <xsd:element name="key" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getImageCountsAndTokensResponseType">
+  <xsd:all>
+   <xsd:element name="imageCount" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="firstToken" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="lastToken" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="nullTokenCount" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getImageListRequestType">
+  <xsd:all>
+   <xsd:element name="tokenStart" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="tokenEnd" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="key" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getImageListResponseType">
+  <xsd:all>
+   <xsd:element name="imageList" type="xsd:string" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getImageListBlockRequestType">
+  <xsd:all>
+   <xsd:element name="tokenStart" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="stride" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="key" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getImageListBlockResponseType">
+  <xsd:all>
+   <xsd:element name="imageList" type="xsd:string" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getNullTokenListRequestType">
+  <xsd:all>
+   <xsd:element name="tokenStart" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="tokenEnd" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="key" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="getNullTokenListResponseType">
+  <xsd:all>
+   <xsd:element name="nullTokenList" type="xsd:string" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="appCheckRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="query_string" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="appCheckResponseType">
+  <xsd:all>
+   <xsd:element name="url" type="xsd:string" form="unqualified"/>
+   <xsd:element name="text" type="xsd:string" form="unqualified"/>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="registerApplePushTokenRequestType">
+  <xsd:all>
+   <xsd:element name="token" type="xsd:string" form="unqualified"/>
+   <xsd:element name="deviceID" type="xsd:string" form="unqualified"/>
+   <xsd:element name="pushToken" type="xsd:string" form="unqualified"/>
+   <xsd:element name="username" type="xsd:string" form="unqualified"/>
+   <xsd:element name="deviceName" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="registerApplePushTokenResponseType">
+  <xsd:all>
+   <xsd:element name="errorCode" type="xsd:integer" form="unqualified"/>
+   <xsd:element name="errorMessage" type="xsd:string" form="unqualified"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="requestUserToken" type="tns:requestUserTokenRequestType"/>
+ <xsd:element name="requestUserTokenResponse" type="tns:requestUserTokenResponseType"/>
+ <xsd:element name="requestAnonToken" type="tns:requestAnonTokenRequestType"/>
+ <xsd:element name="requestAnonTokenResponse" type="tns:requestAnonTokenResponseType"/>
+ <xsd:element name="purgeUserTokens" type="tns:purgeUserTokensRequestType"/>
+ <xsd:element name="purgeUserTokensResponse" type="tns:purgeUserTokensResponseType"/>
+ <xsd:element name="pingEcho" type="tns:pingEchoRequestType"/>
+ <xsd:element name="pingEchoResponse" type="tns:pingEchoResponseType"/>
+ <xsd:element name="getEventList" type="tns:getEventListRequestType"/>
+ <xsd:element name="getEventListResponse" type="tns:getEventListResponseType"/>
+ <xsd:element name="getGroupList" type="tns:getGroupListRequestType"/>
+ <xsd:element name="getGroupListResponse" type="tns:getGroupListResponseType"/>
+ <xsd:element name="registerUser" type="tns:registerUserRequestType"/>
+ <xsd:element name="registerUserResponse" type="tns:registerUserResponseType"/>
+ <xsd:element name="changeUserPassword" type="tns:changeUserPasswordRequestType"/>
+ <xsd:element name="changeUserPasswordResponse" type="tns:changeUserPasswordResponseType"/>
+ <xsd:element name="resetUserPassword" type="tns:resetUserPasswordRequestType"/>
+ <xsd:element name="resetUserPasswordResponse" type="tns:resetUserPasswordResponseType"/>
+ <xsd:element name="forgotUsername" type="tns:forgotUsernameRequestType"/>
+ <xsd:element name="forgotUsernameResponse" type="tns:forgotUsernameResponseType"/>
+ <xsd:element name="getUserGroup" type="tns:getUserGroupRequestType"/>
+ <xsd:element name="getUserGroupResponse" type="tns:getUserGroupResponseType"/>
+ <xsd:element name="getSessionCookie" type="tns:getSessionCookieRequestType"/>
+ <xsd:element name="getSessionCookieResponse" type="tns:getSessionCookieResponseType"/>
+ <xsd:element name="search" type="tns:searchRequestType"/>
+ <xsd:element name="searchResponse" type="tns:searchResponseType"/>
+ <xsd:element name="searchCount" type="tns:searchCountRequestType"/>
+ <xsd:element name="searchCountResponse" type="tns:searchCountResponseType"/>
+ <xsd:element name="reportPerson" type="tns:reportPersonRequestType"/>
+ <xsd:element name="reportPersonResponse" type="tns:reportPersonResponseType"/>
+ <xsd:element name="reReportPerson" type="tns:reReportPersonRequestType"/>
+ <xsd:element name="reReportPersonResponse" type="tns:reReportPersonResponseType"/>
+ <xsd:element name="expirePerson" type="tns:expirePersonRequestType"/>
+ <xsd:element name="expirePersonResponse" type="tns:expirePersonResponseType"/>
+ <xsd:element name="reportAbuse" type="tns:reportAbuseRequestType"/>
+ <xsd:element name="reportAbuseResponse" type="tns:reportAbuseResponseType"/>
+ <xsd:element name="addComment" type="tns:addCommentRequestType"/>
+ <xsd:element name="addCommentResponse" type="tns:addCommentResponseType"/>
+ <xsd:element name="getImageCountsAndTokens" type="tns:getImageCountsAndTokensRequestType"/>
+ <xsd:element name="getImageCountsAndTokensResponse" type="tns:getImageCountsAndTokensResponseType"/>
+ <xsd:element name="getImageList" type="tns:getImageListRequestType"/>
+ <xsd:element name="getImageListResponse" type="tns:getImageListResponseType"/>
+ <xsd:element name="getImageListBlock" type="tns:getImageListBlockRequestType"/>
+ <xsd:element name="getImageListBlockResponse" type="tns:getImageListBlockResponseType"/>
+ <xsd:element name="getNullTokenList" type="tns:getNullTokenListRequestType"/>
+ <xsd:element name="getNullTokenListResponse" type="tns:getNullTokenListResponseType"/>
+ <xsd:element name="appCheck" type="tns:appCheckRequestType"/>
+ <xsd:element name="appCheckResponse" type="tns:appCheckResponseType"/>
+ <xsd:element name="registerApplePushToken" type="tns:registerApplePushTokenRequestType"/>
+ <xsd:element name="registerApplePushTokenResponse" type="tns:registerApplePushTokenResponseType"/>
+</xsd:schema>
+</types>
+<message name="requestUserTokenRequest">
+  <part name="parameters" element="tns:requestUserToken"/></message>
+<message name="requestUserTokenResponse">
+  <part name="parameters" element="tns:requestUserTokenResponse"/></message>
+<message name="requestAnonTokenRequest">
+  <part name="parameters" element="tns:requestAnonToken"/></message>
+<message name="requestAnonTokenResponse">
+  <part name="parameters" element="tns:requestAnonTokenResponse"/></message>
+<message name="purgeUserTokensRequest">
+  <part name="parameters" element="tns:purgeUserTokens"/></message>
+<message name="purgeUserTokensResponse">
+  <part name="parameters" element="tns:purgeUserTokensResponse"/></message>
+<message name="pingEchoRequest">
+  <part name="parameters" element="tns:pingEcho"/></message>
+<message name="pingEchoResponse">
+  <part name="parameters" element="tns:pingEchoResponse"/></message>
+<message name="getEventListRequest">
+  <part name="parameters" element="tns:getEventList"/></message>
+<message name="getEventListResponse">
+  <part name="parameters" element="tns:getEventListResponse"/></message>
+<message name="getGroupListRequest">
+  <part name="parameters" element="tns:getGroupList"/></message>
+<message name="getGroupListResponse">
+  <part name="parameters" element="tns:getGroupListResponse"/></message>
+<message name="registerUserRequest">
+  <part name="parameters" element="tns:registerUser"/></message>
+<message name="registerUserResponse">
+  <part name="parameters" element="tns:registerUserResponse"/></message>
+<message name="changeUserPasswordRequest">
+  <part name="parameters" element="tns:changeUserPassword"/></message>
+<message name="changeUserPasswordResponse">
+  <part name="parameters" element="tns:changeUserPasswordResponse"/></message>
+<message name="resetUserPasswordRequest">
+  <part name="parameters" element="tns:resetUserPassword"/></message>
+<message name="resetUserPasswordResponse">
+  <part name="parameters" element="tns:resetUserPasswordResponse"/></message>
+<message name="forgotUsernameRequest">
+  <part name="parameters" element="tns:forgotUsername"/></message>
+<message name="forgotUsernameResponse">
+  <part name="parameters" element="tns:forgotUsernameResponse"/></message>
+<message name="getUserGroupRequest">
+  <part name="parameters" element="tns:getUserGroup"/></message>
+<message name="getUserGroupResponse">
+  <part name="parameters" element="tns:getUserGroupResponse"/></message>
+<message name="getSessionCookieRequest">
+  <part name="parameters" element="tns:getSessionCookie"/></message>
+<message name="getSessionCookieResponse">
+  <part name="parameters" element="tns:getSessionCookieResponse"/></message>
+<message name="searchRequest">
+  <part name="parameters" element="tns:search"/></message>
+<message name="searchResponse">
+  <part name="parameters" element="tns:searchResponse"/></message>
+<message name="searchCountRequest">
+  <part name="parameters" element="tns:searchCount"/></message>
+<message name="searchCountResponse">
+  <part name="parameters" element="tns:searchCountResponse"/></message>
+<message name="reportPersonRequest">
+  <part name="parameters" element="tns:reportPerson"/></message>
+<message name="reportPersonResponse">
+  <part name="parameters" element="tns:reportPersonResponse"/></message>
+<message name="reReportPersonRequest">
+  <part name="parameters" element="tns:reReportPerson"/></message>
+<message name="reReportPersonResponse">
+  <part name="parameters" element="tns:reReportPersonResponse"/></message>
+<message name="expirePersonRequest">
+  <part name="parameters" element="tns:expirePerson"/></message>
+<message name="expirePersonResponse">
+  <part name="parameters" element="tns:expirePersonResponse"/></message>
+<message name="reportAbuseRequest">
+  <part name="parameters" element="tns:reportAbuse"/></message>
+<message name="reportAbuseResponse">
+  <part name="parameters" element="tns:reportAbuseResponse"/></message>
+<message name="addCommentRequest">
+  <part name="parameters" element="tns:addComment"/></message>
+<message name="addCommentResponse">
+  <part name="parameters" element="tns:addCommentResponse"/></message>
+<message name="getImageCountsAndTokensRequest">
+  <part name="parameters" element="tns:getImageCountsAndTokens"/></message>
+<message name="getImageCountsAndTokensResponse">
+  <part name="parameters" element="tns:getImageCountsAndTokensResponse"/></message>
+<message name="getImageListRequest">
+  <part name="parameters" element="tns:getImageList"/></message>
+<message name="getImageListResponse">
+  <part name="parameters" element="tns:getImageListResponse"/></message>
+<message name="getImageListBlockRequest">
+  <part name="parameters" element="tns:getImageListBlock"/></message>
+<message name="getImageListBlockResponse">
+  <part name="parameters" element="tns:getImageListBlockResponse"/></message>
+<message name="getNullTokenListRequest">
+  <part name="parameters" element="tns:getNullTokenList"/></message>
+<message name="getNullTokenListResponse">
+  <part name="parameters" element="tns:getNullTokenListResponse"/></message>
+<message name="appCheckRequest">
+  <part name="parameters" element="tns:appCheck"/></message>
+<message name="appCheckResponse">
+  <part name="parameters" element="tns:appCheckResponse"/></message>
+<message name="registerApplePushTokenRequest">
+  <part name="parameters" element="tns:registerApplePushToken"/></message>
+<message name="registerApplePushTokenResponse">
+  <part name="parameters" element="tns:registerApplePushTokenResponse"/></message>
+<portType name="plusWebServicesPortType">
+  <operation name="requestUserToken">
+    <input message="tns:requestUserTokenRequest"/>
+    <output message="tns:requestUserTokenResponse"/>
+  </operation>
+  <operation name="requestAnonToken">
+    <input message="tns:requestAnonTokenRequest"/>
+    <output message="tns:requestAnonTokenResponse"/>
+  </operation>
+  <operation name="purgeUserTokens">
+    <input message="tns:purgeUserTokensRequest"/>
+    <output message="tns:purgeUserTokensResponse"/>
+  </operation>
+  <operation name="pingEcho">
+    <input message="tns:pingEchoRequest"/>
+    <output message="tns:pingEchoResponse"/>
+  </operation>
+  <operation name="getEventList">
+    <input message="tns:getEventListRequest"/>
+    <output message="tns:getEventListResponse"/>
+  </operation>
+  <operation name="getGroupList">
+    <input message="tns:getGroupListRequest"/>
+    <output message="tns:getGroupListResponse"/>
+  </operation>
+  <operation name="registerUser">
+    <input message="tns:registerUserRequest"/>
+    <output message="tns:registerUserResponse"/>
+  </operation>
+  <operation name="changeUserPassword">
+    <input message="tns:changeUserPasswordRequest"/>
+    <output message="tns:changeUserPasswordResponse"/>
+  </operation>
+  <operation name="resetUserPassword">
+    <input message="tns:resetUserPasswordRequest"/>
+    <output message="tns:resetUserPasswordResponse"/>
+  </operation>
+  <operation name="forgotUsername">
+    <input message="tns:forgotUsernameRequest"/>
+    <output message="tns:forgotUsernameResponse"/>
+  </operation>
+  <operation name="getUserGroup">
+    <input message="tns:getUserGroupRequest"/>
+    <output message="tns:getUserGroupResponse"/>
+  </operation>
+  <operation name="getSessionCookie">
+    <input message="tns:getSessionCookieRequest"/>
+    <output message="tns:getSessionCookieResponse"/>
+  </operation>
+  <operation name="search">
+    <input message="tns:searchRequest"/>
+    <output message="tns:searchResponse"/>
+  </operation>
+  <operation name="searchCount">
+    <input message="tns:searchCountRequest"/>
+    <output message="tns:searchCountResponse"/>
+  </operation>
+  <operation name="reportPerson">
+    <input message="tns:reportPersonRequest"/>
+    <output message="tns:reportPersonResponse"/>
+  </operation>
+  <operation name="reReportPerson">
+    <input message="tns:reReportPersonRequest"/>
+    <output message="tns:reReportPersonResponse"/>
+  </operation>
+  <operation name="expirePerson">
+    <input message="tns:expirePersonRequest"/>
+    <output message="tns:expirePersonResponse"/>
+  </operation>
+  <operation name="reportAbuse">
+    <input message="tns:reportAbuseRequest"/>
+    <output message="tns:reportAbuseResponse"/>
+  </operation>
+  <operation name="addComment">
+    <input message="tns:addCommentRequest"/>
+    <output message="tns:addCommentResponse"/>
+  </operation>
+  <operation name="getImageCountsAndTokens">
+    <input message="tns:getImageCountsAndTokensRequest"/>
+    <output message="tns:getImageCountsAndTokensResponse"/>
+  </operation>
+  <operation name="getImageList">
+    <input message="tns:getImageListRequest"/>
+    <output message="tns:getImageListResponse"/>
+  </operation>
+  <operation name="getImageListBlock">
+    <input message="tns:getImageListBlockRequest"/>
+    <output message="tns:getImageListBlockResponse"/>
+  </operation>
+  <operation name="getNullTokenList">
+    <input message="tns:getNullTokenListRequest"/>
+    <output message="tns:getNullTokenListResponse"/>
+  </operation>
+  <operation name="appCheck">
+    <input message="tns:appCheckRequest"/>
+    <output message="tns:appCheckResponse"/>
+  </operation>
+  <operation name="registerApplePushToken">
+    <input message="tns:registerApplePushTokenRequest"/>
+    <output message="tns:registerApplePushTokenResponse"/>
+  </operation>
+</portType>
+<binding name="plusWebServicesBinding" type="tns:plusWebServicesPortType">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="requestUserToken">
+    <soap:operation soapAction="?wsdl&amp;api=33#requestUserToken" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="requestAnonToken">
+    <soap:operation soapAction="?wsdl&amp;api=33#requestAnonToken" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="purgeUserTokens">
+    <soap:operation soapAction="?wsdl&amp;api=33#purgeUserTokens" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="pingEcho">
+    <soap:operation soapAction="?wsdl&amp;api=33#pingEcho" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="getEventList">
+    <soap:operation soapAction="?wsdl&amp;api=33#getEventList" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="getGroupList">
+    <soap:operation soapAction="?wsdl&amp;api=33#getGroupList" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="registerUser">
+    <soap:operation soapAction="?wsdl&amp;api=33#registerUser" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="changeUserPassword">
+    <soap:operation soapAction="?wsdl&amp;api=33#changeUserPassword" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="resetUserPassword">
+    <soap:operation soapAction="?wsdl&amp;api=33#resetUserPassword" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="forgotUsername">
+    <soap:operation soapAction="?wsdl&amp;api=33#forgotUsername" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="getUserGroup">
+    <soap:operation soapAction="?wsdl&amp;api=33#getUserGroup" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="getSessionCookie">
+    <soap:operation soapAction="?wsdl&amp;api=33#getSessionCookie" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="search">
+    <soap:operation soapAction="?wsdl&amp;api=33#search" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="searchCount">
+    <soap:operation soapAction="?wsdl&amp;api=33#searchCount" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="reportPerson">
+    <soap:operation soapAction="?wsdl&amp;api=33#reportPerson" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="reReportPerson">
+    <soap:operation soapAction="?wsdl&amp;api=33#reReportPerson" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="expirePerson">
+    <soap:operation soapAction="?wsdl&amp;api=33#expirePerson" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="reportAbuse">
+    <soap:operation soapAction="?wsdl&amp;api=33#reportAbuse" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="addComment">
+    <soap:operation soapAction="?wsdl&amp;api=33#addComment" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="getImageCountsAndTokens">
+    <soap:operation soapAction="?wsdl&amp;api=33#getImageCountsAndTokens" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="getImageList">
+    <soap:operation soapAction="?wsdl&amp;api=33#getImageList" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="getImageListBlock">
+    <soap:operation soapAction="?wsdl&amp;api=33#getImageListBlock" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="getNullTokenList">
+    <soap:operation soapAction="?wsdl&amp;api=33#getNullTokenList" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="appCheck">
+    <soap:operation soapAction="?wsdl&amp;api=33#appCheck" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+  <operation name="registerApplePushToken">
+    <soap:operation soapAction="?wsdl&amp;api=33#registerApplePushToken" style="document"/>
+    <input><soap:body use="literal" namespace="soap/plusWebServices"/></input>
+    <output><soap:body use="literal" namespace="soap/plusWebServices"/></output>
+  </operation>
+</binding>
+<service name="plusWebServices">
+  <port name="plusWebServicesPort" binding="tns:plusWebServicesBinding">
+    <soap:address location="https://plstage.nlm.nih.gov/?wsdl&amp;api=33"/>
+  </port>
+</service>
+</definitions>
